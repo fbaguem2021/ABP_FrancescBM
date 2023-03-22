@@ -1,0 +1,39 @@
+/*  VARIABLES ==================================== */
+.custom-bordered-table {
+    --thead-border-size: 3px;
+    --tbody-border-size: 1px;
+}
+.custom-card {
+    --radius: 25px;
+    --header-border: 3px;
+    --border-shadow: 0 0 2px rgba(234,57,184,.9),0 0 4px rgba(234,57,184,.4),0 0 1rem rgba(234,57,184,.3),0 0 4rem rgba(234,57,184,.1);
+    /*--border-color: rgba(var(--bs-secondary-rgb),var(--bs-border-opacity));*/
+}
+.custom-border-primary {
+    --border-color: rgba(var(--bs-primary-rgb),var(--bs-border-opacity));
+}
+.custom-border-secondary {
+    --border-color: rgba(var(--bs-secondary-rgb),var(--bs-border-opacity));
+}
+/* CLASSES ====================================== */
+/* table classes */
+.custom-bordered-table>thead>tr {
+    border-bottom-width: var(--thead-border-size);
+}
+.custom-bordered-table>tbody>tr:not(:first-child) {
+    border-top-width: var(--tbody-border-size);
+} 
+/* card classes */
+.custom-card.custom-form > .card-header {
+    border-bottom: 2px solid var(--border-color) !important;
+}
+/* OTROS ======================================= */
+.no-border {
+    border: 0px;
+}
+.custom-rounded {
+    border-radius: 25px !important;
+}
+.custom-check-inline {
+    margin-right: 0 !important;
+}
