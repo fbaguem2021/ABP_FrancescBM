@@ -18,6 +18,7 @@ class CicleController extends Controller
      */
     public function index()
     {
+        // $cicles = Cicle::where('id','>',10)->paginate(5);
         $cicles = Cicle::paginate(5);
         #$cicles=[];
         return view('cicles.index', compact('cicles'));
@@ -53,11 +54,11 @@ class CicleController extends Controller
             $cicle->save();
         } catch (QueryException $ex) {
             $mensaje = Utilities::errorMessage($ex);
-            
+
             $request->session()->flash('error', $mensaje);
             return redirect('/cicle/create')->withInput();
         }
-        
+
         return redirect('/cicle');
     }
 
@@ -69,9 +70,9 @@ class CicleController extends Controller
      */
     public function show(Cicle $cicle)
     {
-        
+
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -104,11 +105,11 @@ class CicleController extends Controller
             $cicle->save();
         } catch (QueryException $ex) {
             $mensaje = Utilities::errorMessage($ex);
-            
+
             $request->session()->flash('error', $mensaje);
             return action([App\Http\Controllers\CicleController::class, 'edit'], ['cicle' => $cicle->id]);
         }
-        
+
         return redirect('/cicle');
     }
 

@@ -19,7 +19,8 @@ class CicleController extends Controller
      */
     public function index()
     {
-        $cicles = Cicle::all();
+        $cicles = Cicle::orderBy('id','asc')->get();
+        // $cicles = Cicle::paginate(5);
         return CicleResource::collection($cicles);
     }
 
@@ -27,6 +28,7 @@ class CicleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  Illuminate\Http\Request  $request
+     *
      * @return Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -35,7 +37,7 @@ class CicleController extends Controller
         $cicle->sigles      = $request->input('sigles');
         $cicle->nom         = $request->input('nom');
         $cicle->descripcio  = $request->input('descripcio');
-        $cicle->actiu       = $request->input('actiu');
+        $cicle->actiu       = boolval($request->input('actiu'));
 
         try {
             $cicle->save();
@@ -44,7 +46,7 @@ class CicleController extends Controller
                         ->setStatusCode(201);
         } catch (QueryException $ex) {
             $mensaje = Utilities::errorMessage($ex);
-            
+
             $response = \response()
                         ->json(['error' => $mensaje, 400]);
         }
@@ -75,16 +77,16 @@ class CicleController extends Controller
         $cicle->sigles      = $request->input('sigles');
         $cicle->nom         = $request->input('nom');
         $cicle->descripcio  = $request->input('descripcio');
-        $cicle->actiu       = $request->input('actiu');
+        $cicle->actiu       = boolval($request->input('actiu'));
 
         try {
-            $cicle->save();
+            // $cicle->save();
             $response = (new CicleResource($cicle))
                         ->response()
                         ->setStatusCode(201);
         } catch (QueryException $ex) {
             $mensaje = Utilities::errorMessage($ex);
-            
+
             $response = \response()
                         ->json(['error' => $mensaje, 400]);
         }

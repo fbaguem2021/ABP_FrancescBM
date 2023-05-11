@@ -20,7 +20,7 @@
                     <td>
                         <div class="custom-control custom-checkbox text-end">
                             <input id="actiu" name="actiu" type="checkbox"
-                            class="cistom-control-input" value="actiu" 
+                            class="cistom-control-input" value="actiu"
                             @if($cicle->actiu) checked @endif>
                         </div>
                     </td>
@@ -42,7 +42,7 @@
                                 </button>
                             </form>
                         </div>
-                            
+
                     </td>
                 </tr>
                 @empty
@@ -55,4 +55,3 @@
         {{ $cicles->links() }}
     </div>
 </div>
-<div class="border border-primary" style="width:50px;height:50px;"></div>

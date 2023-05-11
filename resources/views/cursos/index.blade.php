@@ -1,5 +1,8 @@
 @extends('layouts.plantilla')
 @section('titulo', 'Curso')
+@section('links')
+    @vite(['resources/css/app.css', 'resources/scss/app.scss', 'resources/js/app.js'])
+@endsection
 @section('contenido')
     @include('cursos.buscador')
     @include('partials.mensajes')
@@ -30,15 +33,15 @@
           </div>
         </div>
     </div>
-      
-      
+
+
     <a href="{{ url('curs/create') }}" class="btn btn-primary floating-button">
         <i class="fa-solid fa-plus"></i> Nou Curs
     </a>
 @section('scripts')
     <script src="{{ asset('js/modal.js') }}"></script>
 @endsection
-{{-- 
+{{--
     <table class="table table-striped">
         <thead>
             <tr>
@@ -58,6 +61,6 @@
                 </tr>
             @endforeach
         </tbody>
-    </table> 
+    </table>
 --}}
 @endsection
